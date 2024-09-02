@@ -2,7 +2,7 @@
 
 #### Official PyTorch implementation of ShuffleMamba, a regularization for improving Vision Mamba training.
 
-- #### Arxiv: 
+- #### Arxiv: https://arxiv.org/pdf/2408.17081
 
 <img src="Assets/framework.png" alt="framework" style="zoom: 67%;" />
 
@@ -80,7 +80,12 @@ Example for multi-stage training for ShuffleMamba-Reg-B: run the script `run_reg
 ## Citation
 
 ```tex
-
+@article{shufflemamba,
+      title={Stochastic Layer-Wise Shuffle: A Good Practice to Improve Vision Mamba Training}, 
+      author={Zizheng Huang and Haoxing Chen and Jiaqi Li and Jun Lan and Huijia Zhu and Weiqiang Wang and Limin Wang},
+      journal={arXiv preprint arXiv:2408.17081},
+      year={2024},
+}
 ```
 
 ## Acknowledgement
