@@ -475,8 +475,8 @@ def mambar_base_patch16_224(pretrained=False, **kwargs):
 @register_model
 def mambar_large_patch16_224(pretrained=False, **kwargs):
     model = VisionMamba(
-        patch_size=16, embed_dim=1024, depth=48, rms_norm=False, residual_in_fp32=True,
-        fused_add_norm=False, num_cls_tokens=16, cls_reduce=8, **kwargs)
+        patch_size=16, embed_dim=1024, depth=48, rms_norm=True, residual_in_fp32=True,
+        fused_add_norm=True, num_cls_tokens=16, cls_reduce=8, **kwargs)
     model.default_cfg = _cfg()
     if pretrained:
         checkpoint = torch.hub.load_state_dict_from_url(
@@ -489,8 +489,8 @@ def mambar_large_patch16_224(pretrained=False, **kwargs):
 @register_model
 def mambar_large_patch16_224_40(pretrained=False, **kwargs):
     model = VisionMamba(
-        patch_size=16, embed_dim=1024, depth=40, rms_norm=False, residual_in_fp32=True,
-        fused_add_norm=False, num_cls_tokens=16, cls_reduce=8, **kwargs)
+        patch_size=16, embed_dim=1024, depth=40, rms_norm=True, residual_in_fp32=True,
+        fused_add_norm=True, num_cls_tokens=16, cls_reduce=8, **kwargs)
     model.default_cfg = _cfg()
     if pretrained:
         checkpoint = torch.hub.load_state_dict_from_url(
