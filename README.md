@@ -1,4 +1,4 @@
-# Stochastic Layer-Wise Shuffle: A Good Practice to Improve Vision Mamba Training
+# Stochastic Layer-Wise Shuffle for Improving Vision Mamba Training
 
 #### Official PyTorch implementation of ShuffleMamba, a regularization for improving Vision Mamba training.
 
@@ -80,11 +80,11 @@ Example for multi-stage training for ShuffleMamba-Reg-B: run the script `run_reg
 ## Citation
 
 ```tex
-@article{shufflemamba,
-      title={Stochastic Layer-Wise Shuffle: A Good Practice to Improve Vision Mamba Training}, 
+@inproceedings{shufflemamba,
+      title={Stochastic Layer-Wise Shuffle for Improving Vision Mamba Training}, 
       author={Zizheng Huang and Haoxing Chen and Jiaqi Li and Jun Lan and Huijia Zhu and Weiqiang Wang and Limin Wang},
-      journal={arXiv preprint arXiv:2408.17081},
-      year={2024},
+      booktitle={International Conference on Machine Learning},
+      year={2025},
 }
 ```
 
