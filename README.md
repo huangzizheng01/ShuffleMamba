@@ -1,6 +1,6 @@
 # Stochastic Layer-Wise Shuffle for Improving Vision Mamba Training
 
-#### Official PyTorch implementation of ShuffleMamba, a regularization for improving Vision Mamba training.
+#### Official PyTorch implementation of SLWS, a regularization for improving Vision Mamba training.
 
 - #### Arxiv: https://arxiv.org/pdf/2408.17081
 
@@ -55,7 +55,7 @@
 
 ## Installation
 
-### For ImageNet1K classification training
+### For ImageNet1K classification training and masked feature distillation
 ```shell
 # torch>=2.0, cuda>=11.8
 pip install timm==0.4.12 mlflow==2.9.1
@@ -69,12 +69,15 @@ pip install mmdet==3.3.0 mmsegmentation==1.2.2 mmpretrain==1.2.0
 ```
 
 ## Training
-Example for training the ShuffleMamba-B for 300 epochs: run the script `run.sh`.
-Example for multi-stage training for ShuffleMamba-Reg-B: run the script `run_reg.sh`.
-**all the models are training with 8 GPUs by default.*
+Example for training the Vim-B for 300 epochs: run the script in ShuffleMamba/Supervised_training `run.sh`.
+Example for pre-training for MambaMLP-L: run the script in ShuffleMamba/Masked_distillation `run_pt_large.sh`.
+Example for fine-tuning pre-trained MambaMLP-L: run the script in ShuffleMamba/Masked_distillation/Finetuning `run_ft_large.sh`.
+
+## Model Zoo
+
 
 ## TO DO
-- [ ] release the trained models
+- [] release the trained models
 - [x] release the code
 
 ## Citation
@@ -90,4 +93,4 @@ Example for multi-stage training for ShuffleMamba-Reg-B: run the script `run_reg
 
 ## Acknowledgement
 
-This repo is built based on [Mamba-Reg](https://github.com/wangf3014/Mamba-Reg), [VideoMamba](https://github.com/OpenGVLab/VideoMamba/tree/main), [VMamba](https://github.com/MzeroMiko/VMamba/tree/main/detection) and [Vit-Adapter](https://github.com/czczup/ViT-Adapter), thanks!
+This repo is built based on [Mamba-Reg](https://github.com/wangf3014/Mamba-Reg), [VideoMamba](https://github.com/OpenGVLab/VideoMamba/tree/main), [VMamba](https://github.com/MzeroMiko/VMamba/tree/main/detection), [ARM](https://github.com/OliverRensu/ARM), and [Vit-Adapter](https://github.com/czczup/ViT-Adapter), thanks!
