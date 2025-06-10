@@ -1,3 +1,4 @@
+# Stochastic Layer-Wise Shuffle for Improving Vision Mamba Training
 #### Official PyTorch implementation of SLWS, a regularization for improving Vision Mamba training.
 
 - #### Arxiv: https://arxiv.org/pdf/2408.17081
@@ -67,9 +68,9 @@ pip install mmdet==3.3.0 mmsegmentation==1.2.2 mmpretrain==1.2.0
 ```
 
 ## Training
-Example for training the Vim-B for 300 epochs: run the script in `ShuffleMamba/Supervised_training` `run.sh`.
-Example for pre-training for MambaMLP-L: run the script in `ShuffleMamba/Masked_distillation` `run_pt_large.sh`.
-Example for fine-tuning pre-trained MambaMLP-L: run the script in `ShuffleMamba/Masked_distillation/Finetuning` `run_ft_large.sh`.# Stochastic Layer-Wise Shuffle for Improving Vision Mamba Training
+- Example for training the Vim-B for 300 epochs: run the script in `ShuffleMamba/Supervised_training` `run.sh`.
+- Example for pre-training for MambaMLP-L: run the script in `ShuffleMamba/Masked_distillation` `run_pt_large.sh`.
+- Example for fine-tuning pre-trained MambaMLP-L: run the script in `ShuffleMamba/Masked_distillation/Finetuning` `run_ft_large.sh`.
 
 
 ## Model Zoo
