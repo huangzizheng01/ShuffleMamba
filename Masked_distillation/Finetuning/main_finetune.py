@@ -280,9 +280,6 @@ def main(args):
         trunc_normal_(model.head.weight, std=2e-5)
 
 
-
-
-
     model.to(device)
 
     model_ema = ModelEma(
@@ -313,14 +310,22 @@ def main(args):
         model = torch.nn.parallel.DistributedDataParallel(model, device_ids=[args.gpu])#, find_unused_parameters=True)
         model_without_ddp = model.module
 
+
+    if args.eval:
+        t_state_dict = torch.load(args.finetune, map_location='cpu')
+        model.module.load_state_dict(t_state_dict['model_ema'])
+        test_stats = evaluate(data_loader_val, model, device)
+        print(f"Accuracy of the network on the {len(dataset_val)} test images: {test_stats['acc1']:.1f}%")
+        exit(0)
+        
+
     # build optimizer with layer-wise lr decay (lrd)
     param_groups = lrd.param_groups_lrd(model_without_ddp, args.weight_decay,
         no_weight_decay_list=model_without_ddp.no_weight_decay(),
         layer_decay=args.layer_decay
     )
     optimizer = torch.optim.AdamW(param_groups, lr=args.lr)
-    # for param_group in optimizer.param_groups:
-    #     print(param_group['lr'], param_group['lr_scale'])
+
     loss_scaler = NativeScaler()
 
     if mixup_fn is not None:
@@ -338,12 +343,6 @@ def main(args):
         print(f"Accuracy of the network on the {len(dataset_val)} test images: {test_stats['acc1']:.1f}%")
         ema_test_stats = evaluate(data_loader_val, model_ema.ema, device)
         print(f"Accuracy of the network on the {len(dataset_val)} test images: {ema_test_stats['acc1']:.1f}%")
-
-    if args.eval:
-        model.module.load_state_dict(torch.load("./out_finetune_cluster_xh_bigema/checkpoint-70.pth", map_location='cpu')['model_ema'])
-        test_stats = evaluate(data_loader_val, model, device)
-        print(f"Accuracy of the network on the {len(dataset_val)} test images: {test_stats['acc1']:.1f}%")
-        exit(0)
 
     print(f"Start training for {args.epochs} epochs")
     start_time = time.time()
